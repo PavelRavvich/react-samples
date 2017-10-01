@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isOpened: false
-    };
-    this.toggleState = this.toggleState.bind(this);
+    this.state = { isOpened: false };
   }
 
   toggleState() {
-    this.setState({
-      isOpened: !this.state.isOpened
-    });
-    console.log(this.state.isOpened);
+    this.setState({ isOpened: !this.state.isOpened });
   }
 
   render() {
+    console.log( 'isOpened', this.state.isOpened );
     let dropdownText;
     if (this.state.isOpened) {
-      dropdownText = <div>NEW TEXT</div>
+      dropdownText = <div>Here is what is shown in dropdown</div>;
     }
     return (
-      <div onClick={this.toggleState}>
-        Hello react
+      <div onClick={this.toggleState.bind(this)}>
+        Its dropdown baby
         {dropdownText}
       </div>
     );
   }
 }
-
 
 export default Dropdown;

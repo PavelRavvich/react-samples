@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 
-class RegistrationForm extends Component {
+import './RegistrationForm.css';
+
+class RegistationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form submitted', this.state.email);
+    console.log('form is submitted. Email value is', this.state.email);
   }
 
   handleEmailChange(event) {
-    console.log('form email change', event.target.value);
-    this.setState({
-      email: event.target.value
-    })
+    console.log('email was changed', event.target.value);
+    this.setState({email: event.target.value});
   }
 
   render() {
@@ -30,11 +30,12 @@ class RegistrationForm extends Component {
           placeholder="E-mail"
           value={this.state.email}
           onChange={this.handleEmailChange}
+          className="emailField"
         />
-        <button>Send</button>
+        <button className="submitBtn">Save</button>
       </form>
     );
   }
 }
 
-export default RegistrationForm;
+export default RegistationForm;
